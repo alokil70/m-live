@@ -1,0 +1,45 @@
+.m-notification{
+    position: fixed;
+    top: 150px;
+    left: 150px;
+    &__content{
+        padding: 16px;
+        border-radius: 0 0 26px 26px;
+        border: 1px solid #7f828b;
+        color: #fff;
+        font-size: 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 800px;
+        height: 200px;
+        background-color: orangered;
+        margin-bottom: 20px;
+    }
+}
+
+.m-transition-anim{
+    &-enter{
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    &-enter-active{
+        transition: all 0.6s ease-in;
+    }
+    &-enter-to {
+        opacity: 1;
+    }
+    &-leave{
+        opacity: 1;
+    }
+    &-leave-active{
+        transition: transform 0.6s ease-in, opacity 0.6s, height 0.6s;
+    }
+    &-leave-to{
+        transform: translateY(-400px);
+        opacity: 0;
+    }
+    &-move {
+        transition: transform 0.4s ease-out;
+    }
+}

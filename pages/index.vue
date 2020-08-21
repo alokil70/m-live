@@ -1,20 +1,40 @@
 <template>
     <div class="container">
-        <div>dwd</div>
+        <div>
+            <h1>Заказы</h1>
+            <button @click="addM">Добавить</button>
+            <button @click="delM">Удалить</button>
+        </div>
+        <div>
+            <m-notification :messages="array" />
+        </div>
     </div>
 </template>
 
 <script>
-export default {}
+import MNotification from '@/components/popup/m-notification'
+export default {
+    components: { MNotification },
+    data: () => ({
+        array: [],
+        id: 1,
+    }),
+    methods: {
+        addM() {
+            this.id += 1
+            this.array.unshift({ id: this.id, header: 'Заказ', text: 'one' })
+        },
+        delM() {
+            this.array.splice(0, 1)
+        },
+    },
+}
 </script>
 
 <style>
 .container {
     margin: 0 auto;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
