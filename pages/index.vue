@@ -4,6 +4,7 @@
             <h1>Заказы</h1>
             <button @click="addM">Добавить</button>
             <button @click="delM">Удалить</button>
+            <button @click="auth">Стук</button>
         </div>
         <div>
             <m-notification :messages="array" />
@@ -26,6 +27,12 @@ export default {
         },
         delM() {
             this.array.splice(0, 1)
+        },
+        auth() {
+            this.$axios({
+                method: 'get',
+                url: 'https://192.168.137.100:52757/rk7api/v1/serverstatus.xml',
+            }).then((res) => console.log('ответ', res))
         },
     },
 }
