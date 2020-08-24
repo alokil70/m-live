@@ -31,7 +31,21 @@ export default {
         auth() {
             this.$axios({
                 method: 'get',
-                url: 'https://192.168.137.100:52757/rk7api/v1/serverstatus.xml',
+                // url: 'https://192.168.137.100:52757/rk7api/v0/xmlinterface.xml',
+                url: 'http://192.168.0.3:9099/rk7api/v0/xmlinterface.xml',
+                headers: {
+                    Authorization: 'Basic dmR1OjE=',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods':
+                        'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                    'Access-Control-Allow-Headers':
+                        'Origin, Content-Type, X-Auth-Token',
+                    Accept: 'text/xml',
+                },
+                params: {
+                    Username: 'vdu',
+                    Password: '1',
+                },
             }).then((res) => console.log('ответ', res))
         },
     },

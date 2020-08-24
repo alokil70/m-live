@@ -102,6 +102,13 @@ export default {
     },
     axios: {
         baseURL: URL,
+        proxy: true,
+    },
+    proxy: {
+        'http://192.168.0.3:9099/api': {
+            target: 'http://192.168.0.3:9090',
+            pathRewrite: { '^/api/': '' },
+        },
     },
     webfontloader: {
         events: false,
