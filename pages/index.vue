@@ -32,7 +32,7 @@ export default {
             this.$axios({
                 method: 'get',
                 // url: 'https://192.168.137.100:52757/rk7api/v0/xmlinterface.xml',
-                url: 'http://192.168.0.3:9099/rk7api/v0/xmlinterface.xml',
+                url: '/rk7api/v0',
                 headers: {
                     Authorization: 'Basic dmR1OjE=',
                     'Access-Control-Allow-Origin': '*',

@@ -78,13 +78,13 @@ export default {
             local: {
                 endpoints: {
                     login: {
-                        url: '/auth/login',
+                        url: '/api/auth/login',
                         method: 'post',
                         propertyName: 'token',
                     },
-                    logout: { url: '/auth/logout', method: 'post' },
+                    logout: { url: '/api/auth/logout', method: 'post' },
                     user: {
-                        url: '/auth/user',
+                        url: '/api/auth/user',
                         method: 'get',
                         propertyName: 'user',
                     },
@@ -101,12 +101,16 @@ export default {
         },
     },
     axios: {
-        baseURL: URL,
+        // baseURL: URL,
         proxy: true,
     },
     proxy: {
-        'http://192.168.0.3:9099/api': {
-            target: 'http://192.168.0.3:9090',
+        '/api/': {
+            target: 'http://192.168.0.3:9099/api',
+            pathRewrite: { '^/api/': '' },
+        },
+        '/rk7api/': {
+            target: 'https://192.168.8.101:52757/rk7api/v1/serverstatus.xml',
             pathRewrite: { '^/api/': '' },
         },
     },
