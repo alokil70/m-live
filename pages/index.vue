@@ -42,10 +42,6 @@ export default {
                         'Origin, Content-Type, X-Auth-Token',
                     Accept: 'text/xml',
                 },
-                params: {
-                    Username: 'vdu',
-                    Password: '1',
-                },
             }).then((res) => console.log('ответ', res))
         },
     },
